@@ -1,5 +1,6 @@
 package com.HireHub.entity;
 
+import com.HireHub.entity.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
