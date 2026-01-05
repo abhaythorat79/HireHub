@@ -3,8 +3,22 @@ package com.HireHub.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@Getter
-@AllArgsConstructor
+
 public class AuthResponse {
-    private String message;
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public AuthResponse(String token) {
+        this.token = token;
+    }
+
+    public AuthResponse() {
+    }
 }
