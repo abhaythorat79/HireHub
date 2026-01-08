@@ -54,4 +54,16 @@ public class JobApplicationController {
     public List<JobApplication> getApplicationsByJob(@PathVariable Long jobId) {
         return applicationRepository.findByJobId(jobId);
     }
+
+    @PutMapping("/{applicationId}/status")
+    public JobApplication updateStatus(
+            @PathVariable Long applicationId,
+            @RequestParam String status) {
+
+        JobApplication application = applicationRepository.findById(applicationId)
+                .orElseThrow(() -> new RuntimeException("Application not found"));
+
+        application.setStatus(status); // SHORTLISTED / REJECTED / APPLIED
+        return applicationRepository.save(application);
+    }
 }
